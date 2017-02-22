@@ -9,7 +9,8 @@ import {
   ActivityIndicatorIOS
 } from 'react-native';
 
-import api from '../utils/API';
+import api from '../utils/api';
+import Dashboard from './Dashboard';
 
 class Main extends React.Component{
   constructor(props){
