@@ -20,8 +20,9 @@ export default class eggheadNotetaker extends Component {
       <NavigatorIOS
         style={styles.container}
         initialRoute={{
-          title: 'Egghead Notetaker',
-          component: Main
+          title: 'Egghead Notetaker Practice',
+          component: Main,
+          passProps: {myProps: 'foo'}
         }}
         />
     );

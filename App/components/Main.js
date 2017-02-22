@@ -3,14 +3,49 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  TextInput,
+  TouchableHighlight,
+  ActivityIndicatorIOS
 } from 'react-native';
 
 class Main extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      username: '',
+      isLoading: false,
+      error: false
+    }
+  }
+
+  handleChange(e){
+    this.setState({
+      username: e.nativeEvent.text
+    })
+  }
+
+  handleSubmit(e){
+    this.setState({
+      isLoading: true,
+    })
+    console.log('SUBMIT:', this.state.username);
+  }
+  
   render(){
     return(
       <View style={styles.mainContainer}>
-        <Text>Testing the Router!</Text>
+        <Text style={styles.title}>Search a GH User</Text>
+        <TextInput
+          style={styles.searchInput}
+          value={this.state.username}
+          onChange={this.handleChange.bind(this)} />
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this.handleSubmit.bind(this)}
+          underlayColor="white">
+          <Text style={styles.buttonText}>Search</Text>
+        </TouchableHighlight>
       </View>
     )
   }
