@@ -55,6 +55,12 @@ class Main extends React.Component{
   }
 
   render(){
+    var showErr = (
+      this.state.error ? <Text> {this.state.error} </Text> : <View></View>
+    );
+    var showLoading = (
+      this.state.isLoading ? <Text> Loading... </Text> : <Text></Text>
+    )
     return(
       <View style={styles.mainContainer}>
         <Text style={styles.title}>Search a GH User</Text>
@@ -68,6 +74,8 @@ class Main extends React.Component{
           underlayColor="white">
           <Text style={styles.buttonText}>Search</Text>
         </TouchableHighlight>
+        {showErr}
+        {showLoading}
       </View>
     )
   }
