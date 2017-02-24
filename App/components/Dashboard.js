@@ -52,12 +52,12 @@ class Dashboard extends React.Component{
   }
   goToRepos(){
     api.getRepos(this.props.userInfo.login)
-      .then((jsonRes) => {
+      .then((res) => {
         this.props.navigator.push({
           component: Repositories,
           title: "Repositories Page",
           passProps: {
-            repos: jsonRes,
+            repos: res,
             userInfo: this.props.userInfo
           }
         });
