@@ -1,5 +1,6 @@
 import React from 'react';
-
+import api from '../utils/api';
+import Repositories from './Repositories';
 import {
   Text,
   View,
@@ -50,7 +51,17 @@ class Dashboard extends React.Component{
     })
   }
   goToRepos(){
-    console.log("Going to repos");
+    api.getRepos(this.props.userInfo.login)
+      .then((jsonRes) => {
+        this.props.navigator.push({
+          component: Repositories,
+          title: "Repositories Page",
+          passProps: {
+            repos: jsonRes,
+            userInfo: this.props.userInfo
+          }
+        });
+      })
   }
   goToNotes(){
     console.log("Goin to Notes");

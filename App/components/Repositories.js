@@ -1,6 +1,6 @@
 import React from 'react';
 import Badge from './Badge';
-import Separator from './Separator';
+import Separator from '../helpers/Separator';
 import {
   ScrollView,
   Text,
