@@ -1,6 +1,7 @@
 import React from 'react';
 import api from '../utils/api';
 import Repositories from './Repositories';
+import Notes from './Notes';
 import {
   Text,
   View,
@@ -64,7 +65,18 @@ class Dashboard extends React.Component{
       })
   }
   goToNotes(){
-    console.log("Goin to Notes");
+    api.getNotes(this.props.userInfo.login)
+      .then((jsonRes) => {
+        jsonRes = jsonRes || {};
+        this.props.navigator.push({
+          component: Notes,
+          title: 'Notes',
+          passProps: {
+            notes: jsonRes,
+            userInfo: this.props.userInfo
+          }
+        });
+      });
   }
   render(){
 

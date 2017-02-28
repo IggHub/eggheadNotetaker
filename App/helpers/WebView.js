@@ -18,7 +18,6 @@ class Web extends React.Component{
     return(
       <View style={styles.container}>
         <WebView url={this.props.url} />
-
       </View>
     )
   }
